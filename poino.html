@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POINO-MUSIC</title>
+    <link rel="icon" href="music-note.png">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
+
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-image: url('—Pngtree—pair of headphones on the_3416263.jpg');
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+        }
+
+        .wrapper {
+            background-color: #141414;
+            border-radius: 20px;
+            padding: 35px 40px;
+            width: 80%;
+            opacity: 85%;
+        }
+
+        header {
+            color: #b2b2b2;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            margin-bottom: 20px;
+        }
+
+        header h1 {
+            font-size: 1.6rem;
+        }
+
+        header .column {
+            display: flex;
+            align-items: center;
+            margin-right: 20px;
+        }
+
+        header .column span {
+            font-weight: 500;
+            margin-right: 5px;
+        }
+
+        .volume-slider input {
+            width: 100px;
+            height: 10px;
+            -webkit-appearance: none;
+            background: #4b4b4b;
+            border-radius: 20px;
+            outline: none;
+            margin-right: 5px;
+        }
+
+        .volume-slider input::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 20px;
+            height: 20px;
+            background: #fff;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .key-checkbox input {
+            width: 60px;
+            height: 30px;
+            -webkit-appearance: none;
+            background: #4b4b4b;
+            border-radius: 30px;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .key-checkbox input::before {
+            content: "";
+            position: absolute;
+            background: #8c8c8c;
+            height: 26px;
+            width: 26px;
+            border-radius: 50%;
+            top: 50%;
+            transform: translateY(-50%);
+            transition: all 0.3s ease;
+        }
+
+        .key-checkbox input:checked::before {
+            left: calc(100% - 26px);
+            background: #fff;
+        }
+
+        .piano-keys {
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            gap: 5px;
+            flex-wrap: wrap;
+            margin-top: 48px;
+            padding: 0 10px;
+        }
+
+        .piano-keys .key {
+            position: relative;
+            width: 70px;
+            height: 230px;
+            background: #f7f7f7;
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 10px;
+            cursor: pointer;
+            text-transform: uppercase;
+            box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
+            user-select: none;
+            list-style: none;
+            transition: background-color 0.2s, transform 0.2s;
+        }
+
+        .piano-keys .key span {
+            font-size: 1.13rem;
+            position: absolute;
+            bottom: 10px;
+            transition: transform 0.2s;
+        }
+
+        .piano-keys .key.black {
+            background: linear-gradient(#333, #000);
+            margin: 0 -15px 94px -15px;
+            width: 40px;
+            height: 150px;
+            border-radius: 0 0 4px 4px;
+            z-index: 2;
+            box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .piano-keys .key.black span {
+            color: #fff;
+        }
+
+        .piano-keys .white:active span {
+            transform: translateY(5px);
+        }
+
+        .piano-keys .black:active span {
+            transform: translateY(5px);
+        }
+
+        .piano-keys .key:hover {
+            background-color: #e0e0e0;
+            transform: translateY(-5px);
+        }
+
+        .piano-keys .key:hover span {
+            transform: translateY(5px);
+        }
+
+        .piano-keys .hide {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="wrapper">
+    <h1 align="center" style="color: #fff;margin-bottom:25px;">kp gurjar</h1>
+    <header>
+        <h1>PIANO</h1>
+        <div class="column volume-slider">
+            <span>Volume</span>
+            <input type="range" min="0" max="1" step="any" value="0.5">
+        </div>
+        <div class="column key-checkbox">
+            <span>Show Key</span>
+            <input type="checkbox" checked>
+        </div>
+    </header>
+
+    <ul class="piano-keys">
+        <li class="key white" data-key="a"><span>a</span></li>
+        <li class="key black" data-key="w"><span>w</span></li>
+        <li class="key white" data-key="s"><span>s</span></li>
+        <li class="key black" data-key="e"><span>e</span></li>
+        <li class="key white" data-key="d"><span>d</span></li>
+        <li class="key white" data-key="f"><span>f</span></li>
+        <li class="key black" data-key="t"><span>t</span></li>
+        <li class="key white" data-key="g"><span>g</span></li>
+        <li class="key black" data-key="y"><span>y</span></li>
+        <li class="key white" data-key="h"><span>h</span></li>
+        <li class="key black" data-key="u"><span>u</span></li>
+        <li class="key white" data-key="j"><span>j</span></li>
+        <li class="key white" data-key="k"><span>k</span></li>
+        <li class="key black" data-key="o"><span>o</span></li>
+        <li class="key white" data-key="l"><span>l</span></li>
+        <li class="key black" data-key="p"><span>p</span></li>
+        <li class="key white" data-key=";"><span>;</span></li>
+    </ul>
+</div>
+
+</body>
+<script>
+    const poinokeys = document.querySelectorAll(".piano-keys .key");
+    const volume_slider = document.querySelector('.volume-slider input');
+    const key_checkbox = document.querySelector('.key-checkbox input');
+    let allkeyaudio = [];
+    let audio = new Audio();
+    
+    const playTune = (key) => {
+        audio.src = `tunes/${key}.wav`;
+        audio.play();
+        const clickedkey = document.querySelector(`[data-key='${key}']`);
+        setTimeout(() => {
+            clickedkey.classList.remove("active");
+        }, 150);
+        clickedkey.classList.add("active");
+    }
+
+    poinokeys.forEach(key => {
+        allkeyaudio.push(key.dataset.key);
+        key.addEventListener("click", () => playTune(key.dataset.key));
+    });
+
+    const pressedkey = (e) => {
+        if (allkeyaudio.includes(keyPressed)) {
+            playTune(keyPressed);
+        }
+    }
+    
+    const handlevolume = (e) => {
+        audio.volume = e.target.value;
+    }
+
+    const showhidekey = () => {
+        poinokeys.forEach(key => key.classList.toggle('hide'));
+        playTune(null);
+    }
+    
+
+    volume_slider.addEventListener("input", handlevolume);
+    document.addEventListener("keydown", pressedkey);
+    key_checkbox.addEventListener("click", showhidekey);
+</script>
+
+
+</html>
